@@ -14,4 +14,18 @@ function Home() {
   );
 }
 
+// nav bar
+
+//search bar
+
+//nike page
+
+//adidas page
+
+//jordan page
+
+//news
+
+//links
+
 export default Home;
