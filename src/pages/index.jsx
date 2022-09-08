@@ -15,25 +15,34 @@ function Home(props) {
 
   return (
     <main>
+      <div className="uppercase text-center text-7xl"> 
       Sneaker Studio
+      </div>
+      <button className="absolute right-2 top-12 rounded-none border-2 border-black" onClick={() => {
+        setShoeCount((prevShoeCount) => {
+          return prevShoeCount + 10
+        })
+      }}>Show More</button>
+      <br>
       {/* <pre>
         {JSON.stringify(finalProducts, undefined, 2)}
       </pre> */}
-      <div className = "grid ">
+      </br>
+      <div className = "grid gap-3 grid-cols-5 grid-rows-2">
         {
           finalProducts.map((shoe) => {
             return (
               <div key = {shoe._id}>
-                {shoe.shoeName}
-                {shoe.brand}
-                <img src = {shoe.thumbnail} alt = {shoe.shoeName}/> 
-                {shoe.retailPrice}
+                <div className="text-2xl">{shoe.shoeName}</div>
+                <img className = "w-48, h-40" src = {shoe.thumbnail} alt = {shoe.shoeName}/> 
+                <div className="font-semibold text-xl">{shoe.brand}</div>
+                <div className="font-bold">${shoe.retailPrice}</div>
                 {shoe.releaseDate}
                 {shoe.lowestResellPrice && 
                 <ul>
-                  <li>StockX:{shoe.lowestResellPrice.stockX}</li>
-                  <li>Flight Club:{shoe.lowestResellPrice.flightClub}</li>
-                  <li>GOAT:{shoe.lowestResellPrice.goat}</li>
+                  <li>StockX:${shoe.lowestResellPrice.stockX}</li>
+                  <li>Flight Club:${shoe.lowestResellPrice.flightClub}</li>
+                  <li>GOAT:${shoe.lowestResellPrice.goat}</li>
                 </ul>}
               </div>
               
@@ -41,11 +50,8 @@ function Home(props) {
           })
         }
       </div>
-      <button onClick={() => {
-        setShoeCount((prevShoeCount) => {
-          return prevShoeCount + 10
-        })
-      }}>Show More</button>
+      <br></br>
+      <iframe className= "hw-48, h-64" src="https://sneakernews.com/" title="LATEST NEWS"></iframe>
     </main>
   );
 }
@@ -65,7 +71,6 @@ export const getStaticProps = async () => {
   return res
 }
 
-// nav bar?
 
 //search bar- type in brand or style of shoe a list generates of that shoe type (0-10) at a time, usually most popular
 
