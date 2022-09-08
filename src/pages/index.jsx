@@ -15,10 +15,10 @@ function Home(props) {
 
   return (
     <main>
-      <div className="uppercase text-center text-7xl"> 
+      <div className="uppercase text-center text-7xl font-serif tracking-wider"> 
       Sneaker Studio
       </div>
-      <button className="absolute right-2 top-12 rounded-none border-2 border-black" onClick={() => {
+      <button className="absolute right-2 top-12 rounded-none border-2 border-black  shadow-black" onClick={() => {
         setShoeCount((prevShoeCount) => {
           return prevShoeCount + 10
         })
@@ -28,18 +28,18 @@ function Home(props) {
         {JSON.stringify(finalProducts, undefined, 2)}
       </pre> */}
       </br>
-      <div className = "grid gap-3 grid-cols-5 grid-rows-2">
+      <div className = "grid gap-4 grid-cols-5 grid-rows-2">
         {
           finalProducts.map((shoe) => {
             return (
               <div key = {shoe._id}>
-                <div className="text-2xl">{shoe.shoeName}</div>
-                <img className = "w-48, h-40" src = {shoe.thumbnail} alt = {shoe.shoeName}/> 
-                <div className="font-semibold text-xl">{shoe.brand}</div>
-                <div className="font-bold">${shoe.retailPrice}</div>
-                {shoe.releaseDate}
+                <div className="text-2xl text-center">{shoe.shoeName}</div>
+                <img className = "w-48, h-40 mx-auto" src = {shoe.thumbnail} alt = {shoe.shoeName}/> 
+                <div className="font-semibold text-xl text-center">{shoe.brand}</div>
+                <div className="font-bold text-center">${shoe.retailPrice}</div>
+                <div className="text-center">{shoe.releaseDate}</div>
                 {shoe.lowestResellPrice && 
-                <ul>
+                <ul className="text-center">
                   <li>StockX:${shoe.lowestResellPrice.stockX}</li>
                   <li>Flight Club:${shoe.lowestResellPrice.flightClub}</li>
                   <li>GOAT:${shoe.lowestResellPrice.goat}</li>
@@ -51,7 +51,11 @@ function Home(props) {
         }
       </div>
       <br></br>
-      <iframe className= "hw-48, h-64" src="https://sneakernews.com/" title="LATEST NEWS"></iframe>
+      <h2 className="text-center text-5xl underline underline-offset-2 font-serif">Latest News!</h2>
+      <iframe src="https://sneakernews.com/" width={1900} height={800} title="Latest News"></iframe>
+      <img src="goat-logo.png" alt="GOAT logo"></img>
+      <img src="stockX-logo.png" alt="StockX logo"></img>
+      <img src="flight-club.jpg" alt="Flight Club logo"></img>
     </main>
   );
 }
