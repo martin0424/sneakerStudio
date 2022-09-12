@@ -55,10 +55,21 @@ function Home(props) {
       <iframe className="mx-8"src="https://sneakernews.com/" width={1800} height={800} title="Latest News"></iframe>
       <br>
       </br>
+
+        <h3 className="text-center">
+          Use the following links for more:
+        </h3>
+
       <div className="flex flex-row space-x-4 px-8 py-3">
-        <img className="basis-1/3 h-48 w-80 border-double border-black" onClick= {() => {window.location.href='https://www.goat.com'}} src="/logos/goat-logo.png" alt="GOAT logo"/>
-        <img className="basis-1/3 h-48 w-80" onClick= {() => {window.location.href='https://www.stockx.com'}} src="/logos/stockX_logo.png" alt="StockX logo" width={70} height={30}/> 
-        <img className="basis-1/3 h-48 w-80" onClick= {() => {window.location.href='https://www.flightclub.com'}} src="/logos/flight-club-logo.png" alt="Flight Club logo" width={70} height={30}/>
+        <img className="basis-1/3 h-48 w-80 hover:bg-slate-500" 
+          onClick= {() => {window.location.href='https://www.goat.com'}} 
+          src="/logos/goat-logo.png" alt="GOAT logo"/>
+        <img className="basis-1/3 h-48 w-80 hover:bg-slate-500" 
+          onClick= {() => {window.location.href='https://www.stockx.com'}} 
+          src="/logos/stockX_logo.png" alt="StockX logo" width={70} height={30}/> 
+        <img className="basis-1/3 h-48 w-80 hover:bg-slate-500" 
+          onClick= {() => {window.location.href='https://www.flightclub.com'}} 
+          src="/logos/flight-club-logo.png" alt="Flight Club logo" width={70} height={30}/>
       </div>
     </main>
   );
