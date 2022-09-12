@@ -14,15 +14,15 @@ function Home(props) {
   console.log(finalProducts);
 
   return (
-    <main>
-      <div className="uppercase text-center text-7xl font-serif tracking-wider"> 
+    <main className="">
+      <div className="uppercase text-center text-7xl font-serif tracking-wider border-b-4 border-black"> 
       Sneaker Studio
       </div>
-      <button className="absolute right-2 top-12 rounded-none border-2 border-black  shadow-black" onClick={() => {
+      <button className="absolute right-2 top-20 rounded-none border-2 border-black  shadow-black outline-offset-4" onClick={() => {
         setShoeCount((prevShoeCount) => {
           return prevShoeCount + 10
         })
-      }}>Show More</button>
+      }}>More</button>
       <br>
       {/* <pre>
         {JSON.stringify(finalProducts, undefined, 2)}
@@ -32,7 +32,7 @@ function Home(props) {
         {
           finalProducts.map((shoe) => {
             return (
-              <div key = {shoe._id}>
+              <div key = {shoe._id} className= "shadow-xl">
                 <div className="text-2xl text-center">{shoe.shoeName}</div>
                 <img className = "w-48, h-40 mx-auto" src = {shoe.thumbnail} alt = {shoe.shoeName}/> 
                 <div className="font-semibold text-xl text-center">{shoe.brand}</div>
@@ -52,17 +52,21 @@ function Home(props) {
       </div>
       <br></br>
       <h2 className="text-center text-5xl underline underline-offset-2 font-serif">Latest News!</h2>
-      <iframe src="https://sneakernews.com/" width={1900} height={800} title="Latest News"></iframe>
-      <img src="goat-logo.png" alt="GOAT logo"></img>
-      <img src="stockX-logo.png" alt="StockX logo"></img>
-      <img src="flight-club.jpg" alt="Flight Club logo"></img>
+      <iframe className="mx-8"src="https://sneakernews.com/" width={1800} height={800} title="Latest News"></iframe>
+      <br>
+      </br>
+      <div className="flex flex-row space-x-4 px-8 py-3">
+        <img className="basis-1/3 h-48 w-80 border-double border-black" onClick= {() => {window.location.href='https://www.goat.com'}} src="/logos/goat-logo.png" alt="GOAT logo"/>
+        <img className="basis-1/3 h-48 w-80" onClick= {() => {window.location.href='https://www.stockx.com'}} src="/logos/stockX_logo.png" alt="StockX logo" width={70} height={30}/> 
+        <img className="basis-1/3 h-48 w-80" onClick= {() => {window.location.href='https://www.flightclub.com'}} src="/logos/flight-club-logo.png" alt="Flight Club logo" width={70} height={30}/>
+      </div>
     </main>
   );
 }
 export const getStaticProps = async () => {
   const sneaks = new SneaksApi()
   const res = await new Promise((resolve, reject) => {
-    sneaks.getMostPopular(200, (err, products) => {
+    sneaks.getMostPopular(600, (err, products) => {
       resolve( { 
         props: {
           products: JSON.stringify(products)
@@ -74,15 +78,5 @@ export const getStaticProps = async () => {
   
   return res
 }
-
-
-//search bar- type in brand or style of shoe a list generates of that shoe type (0-10) at a time, usually most popular
-
-//news (use iFrame)
-// https://sneakernews.com/
-
-//links
-// https://www.stockx.com, https://www.flightclub.com/, https://www.goat.com/. Use company logo for the link instead of just link. (click logo to transfer pages)
-// click on link emblem or name to take you to the cite instead of just the link 
 
 export default Home;
