@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SneaksApi from "sneaks-api";
 
+
 function Home(props) {
   const [shoeCount, setShoeCount] = useState (10)
     
@@ -15,9 +16,6 @@ function Home(props) {
 
   return (
     <main className="">
-      <div className="uppercase text-center text-7xl font-serif tracking-wider border-b-4 border-black"> 
-      Sneaker Studio
-      </div>
       <button className="absolute right-2 top-20 rounded-none border-2 border-black  shadow-black outline-offset-4" onClick={() => {
         setShoeCount((prevShoeCount) => {
           return prevShoeCount + 10
